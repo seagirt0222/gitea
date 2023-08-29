@@ -1,0 +1,17 @@
+---
+version: "3"
+
+services:
+  gitea:
+    image: gitea/gitea:latest
+    container_name: gitea
+    restart: always
+    ports:
+      - "2222:22"
+      - "3000:3000"
+    volumes:
+      - ./volumes/gitea_data:/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
